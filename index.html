@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="apple-touch-icon" href="icon.png"> -->
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a class="logo" href="#" rel="home" title="Masterpiece">
+        <img src="./assets/logo-mpt-white.svg" alt="Masterpiece" />
+      </a>
+      <nav>
+        <!-- future nav -->
+      </nav>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Schedule</h1>
+      <div class="schedule">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <!-- future footer contents -->
+    </div>
+  </footer>
+
+  <script>
+    const scheduleList = document.querySelector('.schedule');
+
+    const requestJSON = './masterpiece_data.json';
+    const request = new XMLHttpRequest();
+
+    request.open('GET', requestJSON);
+    request.responseType = 'text';
+    request.send();
+
+    request.onload = function() {
+      const scheduleText  = request.response;
+      //console.log(scheduleText);
+      buildSchedule(scheduleText);
+    }
+
+    function buildSchedule(obj) {
+      const scheduleObj = JSON.parse(obj)
+      //console.log(scheduleObj);
+      scheduleList.innerHTML = scheduleObj['franchise']['programs'].map(programTemp).join('');
+    }
+
+    // srcset urls used for testing
+    // https://dummyimage.com/600x400/999999/333333.png 600w,
+    // https://dummyimage.com/1000x800/999999/333333.png 1000w,
+    // https://dummyimage.com/240x160/999999/333333.png 240w"
+
+    function programTemp(program) {
+      return `
+      <section class="program clearfix">
+        <h2>${program.title}</h2>
+        <p>${program.description}</p>
+        <article class="episode clearfix">
+          <img srcset="/assets/${program.weekly_eepisode.image}-med.jpg 600w,
+                       /assets/${program.weekly_eepisode.image}-large.jpg 1000w,
+                       /assets/${program.weekly_eepisode.image}-small.jpg 240w"
+               sizes="(max-width: 600px) 600px,
+                      (max-width: 960px) 1000px,
+                      240px"
+               src="/assets/${program.weekly_eepisode.image}-large.jpg" alt="${program.weekly_eepisode.title} image" />
+          <time datetime"${datetime(program.weekly_eepisode.date, program.weekly_eepisode.time)}">${program.weekly_eepisode.date} | ${program.weekly_eepisode.time}</time>
+          <h3>${program.weekly_eepisode.title}</h3>
+        </article>
+      </section>`;
+    }
+
+    function datetime(date, time) {
+      //console.log(date, time)
+      let dateFormat = new Date(date);
+      let dateYear = dateFormat.getFullYear();
+      let dateMonth = dateFormat.getMonth() + 1;
+      let dateDay = dateFormat.getDate();
+      let dateTime = time.slice(0, -3).split(':');
+      let timeHour = parseInt(dateTime[0]);
+      let timeMin = parseInt(dateTime[1]);
+      timeHour < 12 ? timeHour = timeHour + 12 : timeHour;
+      timeMin < 10 ? timeMin = '0' + timeMin : timeMin;
+      let dateTimeFormat = `${dateYear}-${dateMonth}-${dateDay} ${timeHour}:${timeMin}:00`;
+      return dateTimeFormat;
+    }
+
+    // fetch(requestJSON)
+    //   .then(function(response) {
+    //     return response.json();
+    //   })
+    //   .then(function(myJson) {
+    //     console.log(JSON.stringify(myJson));
+    //   });
+  </script>
+</body>
+
+
+</html>

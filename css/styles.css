@@ -1,0 +1,137 @@
+body {
+  font-family: "Lato", "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+img {
+  width: 100%;
+}
+
+header {
+  background-color: #d12a2f;
+  height: 3.125rem;
+  position: relative;
+  text-align: center;
+}
+
+header .logo {
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: .5rem;
+  max-width: 180px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+main {
+  margin-bottom: 1rem;
+}
+
+main h1 {
+  color: #666;
+  font-family: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 1em auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+main h1:before,
+main h1:after {
+  border-top: 5px solid  #ebb32c;
+  content: " ";
+  display: block;
+  height: 7px;
+  margin: 0 auto;
+  width: 165px;
+}
+
+main h1:after {
+  border-bottom: 5px solid #ebb32c;
+  border-top: 0 none;
+}
+
+section h2,
+section h3 {
+  color: #525252;
+  font-family: "Playfair Display", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1.2;
+  margin: 0 auto .5rem;
+}
+
+article {
+  margin-bottom: 1.5rem;
+}
+
+article img {
+  margin-bottom: .5rem;
+}
+
+article time {
+  color: #666666;
+  font-family: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  margin: 0 auto 1rem;
+}
+
+article h3 {
+  color: #d12a2f;
+  font-family: "Playfair Display", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  margin-bottom: 0px;
+}
+
+footer {
+  background-color: #333333;
+  height: 3.750rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 60em) {
+  header {
+    height: 4.00rem;
+    padding: .5rem 0;
+  }
+  header .logo {
+    margin: 0;
+    max-width: 260px;
+  }
+  article img {
+    float: left;
+    margin-right: .5rem;
+    max-width: 240px;
+  }
+}
+
+@media only screen and (min-width: 68em) {
+  .container {
+    width: 80%;
+  }
+}
