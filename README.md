@@ -1,26 +1,26 @@
 ﻿# WGBH Front-end Test
 
 # To Run
-Download the repository. Open the terminal and run a server from the repository directory. I used python's SimplerServer to do this via `python -m SimpleHTTPServer 8000`. *This is my go-to script for running a server locally.* Please open in Chrome.
+Download the repository. Open the terminal and run a server from the repository directory. I used python's SimplerServer to do this via `python -m SimpleHTTPServer 8000`. This is my preferred script for running a server locally. Please open in Chrome.
 
 # Technology
 
 ## Styles
 I used vanilla CSS for this project. For larger, more complex projects I would have used a CSS preprocessor like Sass or Less.
-Instead of reinventing the wheel I used similar styles to the styles used at [Masterpiece](https://www.pbs.org/wgbh/masterpiece/).
-Styles are organized from the mobile first design changing to a desktop layout at 960px with media queries.
+Instead of reinventing the wheel I used similar styles to the styles used on the [Masterpiece](https://www.pbs.org/wgbh/masterpiece/) website.
+Styles are organized from a mobile first design, changing to a desktop layout at 960px with media queries.
 Note: I started with an HTML Boilerplate that brought in normal.css which is my preferred css reset and main.css. The stylesheet I created is styles.css.
 
 ## Markup
-Used HTML5 for semantic markup that provides basic accessibility. Some notable HTML5 elements are `<time>` and `<img srcset />`
+I used HTML5 for semantic markup that provides basic accessibility. Some notable HTML5 elements are `<time>` and `<img srcset />`
 ### time
-I like the `<time>` element for displaying this type of information on an HTML page. I built the datetime attribute with javascript.
+I like the `<time>` element for displaying this type of information on an HTML page. I built the `datetime` attribute with javascript.
 ### img srcset
-This was a good place to demonstrate responsive images, especially since Tim, Mike and I talked about this technique. Something to note is the images don't always update when resizing the browser. A simple refresh is needed to display the correct image size.
+This was a good place to demonstrate responsive images, especially since Tim, Mike and I talked about this technique. A simple refresh might be needed to display the correct image size.
 
 ## Javascript
-The javascript is internal on the HTML page. If the script was longer or needed on other pages I would have made it external.
-The JSON file has one edit, I added the image name. The JSON file with loaded with `XMLHttpRequest`. The `program` arrays are parsed with ES6 map() method. Template strings are used to build the program template that is displayed with `innerHTML`.
+The javascript is internal to the HTML page. If the script was longer or needed on other pages I would have made it external.
+The JSON file has one edit, I added the image name to the `weekly_episode`. The JSON file is loaded with `XMLHttpRequest`. The `program` arrays are parsed with ES6 `.map()` method. Template strings are used to build the program template that is displayed with `innerHTML`.
 
 
 <!-- # The Task
