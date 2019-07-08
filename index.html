@@ -71,15 +71,15 @@
         <h2>${program.title}</h2>
         <p>${program.description}</p>
         <article class="episode clearfix">
-          <img srcset="/assets/${program.weekly_eepisode.image}-med.jpg 600w,
-                       /assets/${program.weekly_eepisode.image}-large.jpg 1000w,
-                       /assets/${program.weekly_eepisode.image}-small.jpg 240w"
+          <img srcset="/assets/${program.weekly_episode.image}-med.jpg 600w,
+                       /assets/${program.weekly_episode.image}-large.jpg 1000w,
+                       /assets/${program.weekly_episode.image}-small.jpg 240w"
                sizes="(max-width: 600px) 600px,
                       (max-width: 960px) 1000px,
                       240px"
-               src="/assets/${program.weekly_eepisode.image}-large.jpg" alt="${program.weekly_eepisode.title} image" />
-          <time datetime"${datetime(program.weekly_eepisode.date, program.weekly_eepisode.time)}">${program.weekly_eepisode.date} | ${program.weekly_eepisode.time}</time>
-          <h3>${program.weekly_eepisode.title}</h3>
+               src="/assets/${program.weekly_episode.image}-large.jpg" alt="${program.weekly_episode.title} image" />
+          <time datetime"${datetime(program.weekly_episode.date, program.weekly_episode.time)}">${program.weekly_episode.date} | ${program.weekly_episode.time}</time>
+          <h3>${program.weekly_episode.title}</h3>
         </article>
       </section>`;
     }
